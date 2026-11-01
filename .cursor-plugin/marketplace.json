@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    {
+      "name": "test-plugin",
+      "displayName": "Test Plugin",
+      "description": "A test plugin for validation"
+    },
+    {
+      "name": "full-plugin",
+      "displayName": "Full Plugin",
+      "description": "A full featured plugin"
+    },
+    {
+      "name": "test-plugin-with-paths",
+      "displayName": "Test Plugin With Paths",
+      "description": "A test plugin with paths"
+    },
+    {
+      "name": "test-plugin-missing-path",
+      "displayName": "Test Plugin Missing Path",
+      "description": "A test plugin with missing paths"
+    }
+  ]
+}

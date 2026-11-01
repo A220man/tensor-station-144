@@ -1,0 +1,12 @@
+{
+  "name": "test-plugin-with-paths",
+  "version": "1.0.0",
+  "description": "A test plugin with paths",
+  "skills": ["skills/test-skill"],
+  "agents": ["agents/test-agent"],
+  "commands": ["commands/test-cmd"],
+  "hooks": ["hooks/hooks.json"],
+  "mcpServers": ["mcp/server.json"],
+  "logo": "assets/logo.png",
+  "icon": "assets/icon.png"
+}

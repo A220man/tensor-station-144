@@ -1,0 +1,45 @@
+name: Validate Plugins
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    paths:
+      - '.cursor-plugin/**'
+      - '**/plugin.json'
+      - '**/SKILL.md'
+      - '**/hooks.json'
+      - '**/mcp.json'
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'package-lock.json'
+
+jobs:
+  validate:
+    name: Validate plugins and skills
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate plugin manifests
+        run: npm run validate
+
+      - name: Validate skill frontmatter
+        run: npm run validate:skills
+
+      - name: Run tests
+        run: npm test && npm run test:skills
+

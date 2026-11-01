@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "current_feature": "pr-review-canvas-fix",
+</arg_key>
+<arg_value>
+  "features": [
+    {
+      "id": "plugin-schema-validator",
+      "title": "Plugin manifest schema and validator",
+      "status": "done",
+      "acceptance": [
+        "plugin.schema.json defines valid plugin manifest structure",
+        "validate-plugins.mjs validates plugin.json against schema",
+        "validator reports clear errors for invalid manifests"
+      ],
+      "implementation": [
+        "schemas/plugin.schema.json",
+        "scripts/validate-plugins.mjs"
+      ],
+      "tests": [
+        "tests/validate-plugins.test.mjs"
+      ]
+    },
+    {
+      "id": "skill-schema-validator",
+      "title": "Skill frontmatter schema and validator",
+      "status": "done",
+      "acceptance": [
+        "skill.schema.json defines valid skill frontmatter",
+        "validator parses and validates SKILL.md frontmatter",
+        "validates name constraint (lowercase, numbers, hyphens, matches folder)"
+      ],
+      "implementation": [
+        "schemas/skill.schema.json",
+        "scripts/validate-skills.mjs"
+      ],
+      "tests": [
+        "tests/validate-skills.test.mjs"
+      ]
+    },
+    {
+      "id": "ci-workflow",
+      "title": "CI workflow with pinned dependencies",
+      "status": "done",
+      "acceptance": [
+        "package.json with pinned ajv/ajv-formats",
+        "validate-plugins.yml runs on all plugin component changes",
+        "npm ci used for reproducible installs"
+      ],
+      "implementation": [
+        "package.json",
+        "package-lock.json",
+        ".github/workflows/validate-plugins.yml"
+      ],
+      "tests": []
+    },
+    {
+      "id": "local-plugin-symlink-support",
+      "title": "Local plugin symlink resolution",
+      "status": "done",
+      "acceptance": [
+        "Plugin loader resolves symlinks in ~/.cursor/plugins/local/",
+        "Symlinked plugins load identically to copied plugins"
+      ],
+      "implementation": [
+        "scripts/load-plugins.mjs"
+      ],
+      "tests": [
+        "tests/load-plugins.test.mjs"
+      ]
+    },
+    {
+      "id": "mcp-json-validator",
+      "title": "MCP server config validator",
+      "status": "done",
+      "acceptance": [
+        "mcp.schema.json defines valid mcp.json structure",
+        "validator checks placeholder variables against declared variables"
+      ],
+      "implementation": [
+        "schemas/mcp.schema.json",
+        "scripts/validate-mcp.mjs"
+      ],
+      "tests": [
+        "tests/validate-mcp.test.mjs"
+      ]
+    },
+    {
+      "id": "plugin-path-validator",
+      "title": "Plugin component path existence validator",
+      "status": "done",
+      "acceptance": [
+        "validate-plugins.mjs validates component paths (skills, agents, commands, hooks, mcpServers, logo, icon) exist",
+        "validator reports clear errors for missing or incorrect paths",
+        "all existing tests continue to pass"
+      ],
+      "implementation": [
+        "scripts/validate-plugins.mjs"
+      ],
+      "tests": [
+        "tests/validate-plugins.test.mjs"
+      ]
+    }
+    {
+      "id": "pr-review-canvas-fix",
+      "title": "PR Review Canvas diff renderer fix",
+      "status": "done",
+</arg_key>
+<arg_value>
+      "acceptance": [
+        "Diff lines are parsed and numbered from original hunk headers before any filtering",
+        "Import line filtering is opt-in and shows a collapsed \"N import lines hidden\" row",
+        "Whitespace-only collapsing only applies when changed lines are identical after trimming leading/trailing whitespace",
+        "Whitespace-sensitive file types (Python, YAML, Makefile) are excluded from whitespace collapsing"
+      ],
+      "implementation": [
+        "cursor-team-kit/skills/pr-review-canvas/renderer.js"
+      ],
+      "tests": [
+        "tests/pr-review-canvas.test.mjs"
+      ]
+    }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "test-plugin-missing-path",
+  "version": "1.0.0",
+  "description": "A test plugin with missing path",
+  "skills": ["skills/test-skill", "skills/missing-skill"],
+  "agents": ["agents/missing-agent"],
+  "commands": ["commands/missing-cmd"],
+  "hooks": ["hooks/missing.json"],
+  "mcpServers": ["mcp/missing.json"],
+  "logo": "assets/missing-logo.png",
+  "icon": "assets/missing-icon.png"
+}
