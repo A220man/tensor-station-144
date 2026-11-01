@@ -1,0 +1,26 @@
+{
+  "name": "tensor-station-144",
+  "version": "1.0.0",
+  "description": "Cursor plugin specification and official plugins",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-plugins.mjs",
+    "validate:skills": "node scripts/validate-skills.mjs",
+    "test": "node tests/validate-plugins.test.mjs",
+    "test:skills": "node tests/validate-skills.test.mjs",
+    "test:load-plugins": "node tests/load-plugins.test.mjs",
+    "load-plugins": "node scripts/load-plugins.mjs"
+  },
+  "keywords": [
+    "cursor",
+    "plugins",
+    "validation"
+  ],
+  "author": "Ryan Vo",
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "js-yaml": "^4.1.0"
+  }
+}

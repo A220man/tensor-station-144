@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cursor Plugin Manifest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9]([a-z0-9.-]*[a-z0-9])?$",
+      "description": "Plugin identifier"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable plugin name"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1024,
+      "description": "Plugin description"
+    },
+    "author": {
+      "type": "string",
+      "description": "Plugin author name"
+    },
+    "repository": {
+      "type": "string",
+      "format": "uri",
+      "description": "Plugin repository URL"
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX license identifier"
+    },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Relative paths to skill directories"
+    },
+    "agents": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Relative paths to agent directories"
+    },
+    "commands": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Relative paths to command directories"
+    },
+    "hooks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Relative paths to hook configuration files"
+    },
+    "mcpServers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Relative paths to MCP server config files"
+    },
+    "variables": {
+      "type": "object",
+      "description": "Environment variable declarations for MCP servers and other components",
+      "patternProperties": {
+        "^[A-Z_][A-Z0-9_]*$": {
+          "type": "object",
+          "properties": {
+            "description": { "type": "string" },
+            "default": { "type": "string" },
+            "secret": { "type": "boolean", "default": false }
+          },
+          "required": ["description"],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "logo": {
+      "type": "string",
+      "description": "Relative path to logo image file"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Relative path to icon image file"
+    }
+  },
+  "required": ["name", "version", "description"],
+  "additionalProperties": false
+}

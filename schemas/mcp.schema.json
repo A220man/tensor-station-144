@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MCP Server Configuration",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "MCP server identifier"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1024,
+      "description": "MCP server description"
+    },
+    "command": {
+      "type": "string",
+      "description": "Command to start the MCP server"
+    },
+    "args": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Arguments for the command"
+    },
+    "env": {
+      "type": "object",
+      "description": "Environment variables for the MCP server",
+      "patternProperties": {
+        "^[A-Z_][A-Z0-9_]*$": {
+          "type": "string",
+          "description": "Environment variable value (may contain ${VAR} placeholders)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "transport": {
+      "type": "string",
+      "enum": ["stdio", "sse", "http"],
+      "default": "stdio",
+      "description": "Transport protocol for MCP communication"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for SSE/HTTP transport"
+    },
+    "headers": {
+      "type": "object",
+      "description": "Additional headers for HTTP/SSE transport",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "required": ["name", "command"],
+  "additionalProperties": false
+}

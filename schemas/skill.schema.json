@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Skill Frontmatter",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?$",
+      "description": "Skill identifier: lowercase letters, numbers, and hyphens only. Must match the parent folder name."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable display name for the skill (shown in UI)"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1024,
+      "description": "Skill description"
+    },
+    "paths": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "File patterns this skill applies to"
+    },
+    "disable-model-invocation": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to disable model invocation for this skill"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Icon identifier for the skill"
+    },
+    "color": {
+      "type": "string",
+      "description": "Color identifier for the skill"
+    },
+    "mode": {
+      "type": "boolean",
+      "description": "Whether this skill represents a mode"
+    },
+    "reminder": {
+      "type": "string",
+      "description": "Reminder text for the skill"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Client-specific metadata (e.g., cursor-display-name)",
+      "additionalProperties": true
+    }
+  },
+  "required": ["name", "description"],
+  "additionalProperties": true
+}
