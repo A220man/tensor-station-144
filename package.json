@@ -1,14 +1,18 @@
 {
   "name": "tensor-station-144",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Cursor plugin specification and official plugins",
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate-plugins.mjs",
     "validate:skills": "node scripts/validate-skills.mjs",
-    "test": "node tests/validate-plugins.test.mjs",
+    "validate:mcp": "node scripts/validate-mcp.mjs",
+    "test": "node tests/validate-plugins.test.mjs && node tests/validate-skills.test.mjs && node tests/validate-mcp.test.mjs && node tests/load-plugins.test.mjs && node tests/pr-review-canvas.test.mjs",
+    "test:plugins": "node tests/validate-plugins.test.mjs",
     "test:skills": "node tests/validate-skills.test.mjs",
+    "test:mcp": "node tests/validate-mcp.test.mjs",
     "test:load-plugins": "node tests/load-plugins.test.mjs",
+    "test:pr-review": "node tests/pr-review-canvas.test.mjs",
     "load-plugins": "node scripts/load-plugins.mjs"
   },
   "keywords": [
