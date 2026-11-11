@@ -29,14 +29,17 @@ All 107 tests pass across 5 test suites:
 
 ```bash
 npm ci              # Install dependencies
-npm test            # Run plugin validation tests
+npm test            # Run all tests
+npm run test:plugins # Run plugin validation tests
 npm run test:skills # Run skill validation tests
+npm run test:mcp    # Run MCP validator tests
 npm run test:load-plugins # Run plugin loader tests
+npm run test:pr-review # Run PR Review Canvas tests
 npm run validate    # Validate plugin manifests
 npm run validate:skills # Validate skill frontmatter
+npm run validate:mcp # Validate MCP config
 npm run load-plugins # Discover and load plugins
 ```
-
 ## Project Structure
 
 ```
